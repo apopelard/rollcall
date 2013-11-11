@@ -1,7 +1,6 @@
 <div class="page-header">
   <h1>New Meeting</h1>
 </div>
-
 <%= form_tag(meetings_url, method: 'post', class: 'form-horizontal') do %>
 
   <div class="form-group">
@@ -16,7 +15,7 @@
     <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>
 
     <div class="col-md-2">
-      <%= number_field_tag :course_id, nil, class: 'form-control' %>
+      <%= select_tag :course_id, options_for_select(@course_options), class: 'form-control' %>
     </div>
   </div>
 

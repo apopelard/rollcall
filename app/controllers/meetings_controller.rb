@@ -9,13 +9,18 @@ class MeetingsController < ApplicationController
   end
 
   def new
+    courses = Course.all
+    @course_options = [[]]
+    courses.each do |course|
+      @course_options << [course.title, course.id]
+    end
   end
 
   def create
     @meeting = Meeting.new
     @meeting.held_on = params[:held_on]
     @meeting.course_id = params[:course_id]
-    
+
     if @meeting.save
       redirect_to meetings_url
     else
@@ -31,7 +36,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find_by(:id => params[:id])
     @meeting.held_on = params[:held_on]
     @meeting.course_id = params[:course_id]
-    
+
     if @meeting.save
       redirect_to meetings_url
     else
