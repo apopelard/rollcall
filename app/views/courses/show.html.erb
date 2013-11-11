@@ -17,4 +17,15 @@
   <%= @course.title %>
 </p>
 
+<p>
+  <b>Meetings:</b>
+  <ul>
+    <% @meetings.each do |meeting| %>
+    <li>
+      <%= link_to meeting.held_on, meeting_url(meeting.id) %>
+    </li>
+    <% end %>
+  </ul>
+</p>
+
 

@@ -2,10 +2,12 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
+    @courses = Course.all
   end
 
   def show
     @meeting = Meeting.find_by(:id => params[:id])
+    @course = Course.find_by(:id => @meeting.course_id)
   end
 
   def new

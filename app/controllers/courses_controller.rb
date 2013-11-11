@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find_by(:id => params[:id])
+    @meetings = Meeting.where(:course_id => @course.id)
   end
 
   def new
@@ -16,7 +17,7 @@ class CoursesController < ApplicationController
     @course.department = params[:department]
     @course.number = params[:number]
     @course.title = params[:title]
-    
+
     if @course.save
       redirect_to courses_url
     else
@@ -33,7 +34,7 @@ class CoursesController < ApplicationController
     @course.department = params[:department]
     @course.number = params[:number]
     @course.title = params[:title]
-    
+
     if @course.save
       redirect_to courses_url
     else
