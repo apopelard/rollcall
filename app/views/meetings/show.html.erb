@@ -12,4 +12,14 @@
   <%= @course.title %>
 </p>
 
+<p>
+  <b>Attendance:</b>
+  <ul>
+    <% @attendees.each do |attendee| %>
+    <li>
+      <%= link_to "#{@students[attendee.student_id-1].first_name} #{@students[attendee.student_id-1].last_name}", student_url(@students[attendee.student_id-1].id) %>
+    </li>
+    <% end %>
+  </ul>
+</p>
 

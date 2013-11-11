@@ -8,6 +8,8 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.find_by(:id => params[:id])
     @course = Course.find_by(:id => @meeting.course_id)
+    @attendees = Attendance.where(:meeting_id => @meeting.id)
+    @students = Student.all
   end
 
   def new
