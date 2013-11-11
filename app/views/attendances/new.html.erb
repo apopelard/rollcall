@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>New Attendance</h1>
+</div>
+
+<%= form_tag(attendances_url, method: 'post', class: 'form-horizontal') do %>
+
+  <div class="form-group">
+    <%= label_tag :meeting_id, nil, class: 'col-md-2 control-label' %>
+    
+    <div class="col-md-2">
+      <%= number_field_tag :meeting_id, nil, class: 'form-control' %>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
+    
+    <div class="col-md-2">
+      <%= number_field_tag :student_id, nil, class: 'form-control' %>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+      <%= submit_tag "Create Attendance", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

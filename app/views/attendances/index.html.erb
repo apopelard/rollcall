@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Attendances</h1>
+</div>
+
+<p><%= link_to 'Add a New Attendance', new_attendance_url, class: 'btn btn-primary' %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Meeting</th>
+      <th>Student</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @attendances.each do |attendance| %>
+    <tr>
+        <td><%= attendance.meeting_id %></td>
+        <td><%= attendance.student_id %></td>
+  
+      <td><%= link_to '<i class="icon-zoom-in"></i>'.html_safe, attendance_url(attendance), class: 'btn btn-primary' %></td>
+      <td><%= link_to '<i class="icon-edit"></i>'.html_safe, edit_attendance_url(attendance), class: 'btn btn-warning' %></td>
+      <td><%= link_to '<i class="icon-trash"></i>'.html_safe, attendance_url(attendance), method: 'delete', data: { confirm: "Do you really want to delete this attendance?" }, class: 'btn btn-danger' %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

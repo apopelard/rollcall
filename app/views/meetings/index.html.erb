@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Meetings</h1>
+</div>
+
+<p><%= link_to 'Add a New Meeting', new_meeting_url, class: 'btn btn-primary' %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Held on</th>
+      <th>Course</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @meetings.each do |meeting| %>
+    <tr>
+        <td><%= meeting.held_on %></td>
+        <td><%= meeting.course_id %></td>
+  
+      <td><%= link_to '<i class="icon-zoom-in"></i>'.html_safe, meeting_url(meeting), class: 'btn btn-primary' %></td>
+      <td><%= link_to '<i class="icon-edit"></i>'.html_safe, edit_meeting_url(meeting), class: 'btn btn-warning' %></td>
+      <td><%= link_to '<i class="icon-trash"></i>'.html_safe, meeting_url(meeting), method: 'delete', data: { confirm: "Do you really want to delete this meeting?" }, class: 'btn btn-danger' %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

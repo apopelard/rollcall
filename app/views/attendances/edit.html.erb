@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Editing Attendance #<%= @attendance.id %></h1>
+</div>
+
+<%= form_tag(attendance_url(@attendance), method: 'patch', class: 'form-horizontal') do %>
+
+  <div class="form-group">
+    <%= label_tag :meeting_id, nil, class: 'col-md-2 control-label' %>
+    
+    <div class="col-md-2">
+      <%= number_field_tag :meeting_id, @attendance.meeting_id, class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
+    
+    <div class="col-md-2">
+      <%= number_field_tag :student_id, @attendance.student_id, class: 'form-control'%>
+    </div>
+  </div>
+
+  
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+          <%= submit_tag "Update Attendance", class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+<% end %>
